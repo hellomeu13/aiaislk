@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troca de Imagens</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            background-color: #333;
+            color: #ccc;
+            margin: 0;
+            padding: 20px;
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXOhztgXsbQHG74zSX0GhURdwywe9T_iqokQ&s');
+        }
+        img {
+            max-width: 80%;
+            height: auto;
+            border-radius: 8px;
+            border: 2px solid #666;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.8);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #444;
+            color: #eee;
+            border: 2px solid #666;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #666;
+        }
+        .caption {
+            font-size: 18px;
+            font-style: italic;
+            margin-top: -10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <img id="imagem" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7ouKYnd1h5h64stnY7w-kWnB7rc6Q6PBRAg&s" alt="Imagem">
+    <br>
+    <div id="caption" class="caption">lendas do grunge</div>
+    <button onclick="trocarImagem()">Mudar Imagem</button>
+
+    <script>
+        let imagens = [
+            {
+                url: 'https://i.pinimg.com/originals/c1/0a/8e/c10a8ee30e4253bdb8958eb46c729605.gif',
+                texto: 'Christopher John Cornell foi um cantor, guitarrista e compositor norte-americano, considerado um dos fundadores do movimento grunge e conhecido como vocalista das bandas Soundgarden, Temple of the Dog e Audioslave. Ganhador de três Prêmios Grammy.'
+            },
+            {
+                url: 'https://i.pinimg.com/originals/ec/93/d8/ec93d8504b34843ee90432247f1385be.gif',
+                texto: 'Scott Richard Kline, mais conhecido como Scott Weiland foi um músico, vocalista e compositor norte-americano. Ex-vocalista do grupo Velvet Revolver, ficou conhecido mundialmente como líder da banda Stone Temple Pilots.'
+            },
+            {
+                url: 'https://i.pinimg.com/originals/c7/9f/d7/c79fd7902f6ef2353d268df1d6ecaa0d.gif',
+                texto: 'Layne Thomas Staley foi um cantor e compositor americano que foi o vocalista original do Alice in Chains, que alcançou fama internacional no início Década de 1990 como parte do movimento grunge de Seattle'
+            },
+            {
+                url: 'https://media1.giphy.com/media/Id47nUUpLTSJG/giphy.gif?cid=6c09b952lrswswka6s424qat5d6lbsl6dt2shyq9az150bpe&ep=v1_gifs_search&rid=giphy.gif&ct=g',
+                texto: 'Kurt Donald Cobain foi um cantor, compositor e músico norte-americano, famoso por ter sido o fundador, vocalista e guitarrista da banda Nirvana'
+            }
+        ];
+        let indice = 0;
+
+        function trocarImagem() {
+            indice = (indice + 1) % imagens.length;
+            document.getElementById('imagem').src = imagens[indice].url;
+            document.getElementById('caption').textContent = imagens[indice].texto;
+        }
+    </script>
+</body>
+</html>
